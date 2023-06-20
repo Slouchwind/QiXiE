@@ -1,0 +1,76 @@
+@import url(https://cdn.jsdelivr.net/npm/misans/lib/misans-300-light.min.css);
+@import url(https://cdn.jsdelivr.net/npm/@fontsource/heebo@5.0.3/300.min.css);
+
+:root {
+    --head-margin: 55px;
+    --selector-num: 12px;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: #a7a7a7;
+}
+
+* {
+    font-family: MiSans, Heebo, serif;
+    transition-timing-function: cubic-bezier(0.42, -0.01, 0.69, 1.25);
+}
+
+body {
+    margin: 0;
+}
+
+a {
+    color: #3dc8e9;
+    text-decoration: none;
+}
+
+div#head {
+    margin: 0;
+    top: 0;
+    left: 0;
+    width: var(--head-margin);
+    height: 100%;
+    position: fixed;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    align-items: center;
+
+    &:first-child {
+        margin-top: 20px;
+    }
+
+    a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 5px;
+        border-radius: 50%;
+        transition-duration: 150ms;
+
+        &:hover {
+            background-color: #0000001d;
+            border-radius: 15px;
+            transition-duration: 200ms;
+        }
+
+        img {
+            margin: 15% 30%;
+            width: 70%;
+        }
+    }
+}
+
+div#headMargin {
+    width: calc(100% - var(--head-margin));
+    height: 100%;
+    margin-left: var(--head-margin);
+}
