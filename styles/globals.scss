@@ -105,4 +105,5 @@ div#headMargin {
     width: calc(100% - 95px);
     height: 100%;
     margin-#{$float}: 95px;
+    position: absolute;
 }

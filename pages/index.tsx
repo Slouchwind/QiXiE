@@ -15,11 +15,10 @@ import getTitle from "@/components/title";
 export default function Home() {
     const { lo, asPath } = useLocale(index);
     return (
-        <MainCode>
+        <MainCode before={<div id={styles.back} />}>
             <NextSeo
                 title={getTitle(lo, asPath)}
             />
-            <div id={styles.back} />
             <div id={styles.content}>
                 <img src='/text.svg' />
                 <div id={styles.hr} />

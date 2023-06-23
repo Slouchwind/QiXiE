@@ -45,7 +45,10 @@ function LinkBlock({ href, img }: LinkBlockProps) {
     return (<Link href={href}>{imgElement}</Link>);
 }
 
-export default function MainCode({ children }: { children: React.ReactNode }) {
+export default function MainCode({ before, children }: {
+    before?: React.ReactNode,
+    children: React.ReactNode,
+}) {
     return (
         <>
             <div id='head'>
@@ -55,6 +58,7 @@ export default function MainCode({ children }: { children: React.ReactNode }) {
                 <LinkBlock href='/message' />
                 <LinkBlock href='/individual' />
             </div>
+            {before}
             <div id='headMargin'>
                 {children}
             </div>
