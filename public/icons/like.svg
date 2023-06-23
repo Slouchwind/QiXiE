@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<svg width="30px" height="30px" viewBox="0 0 30 30" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
-  <g id="Group-2">
-    <path d="M15.4 9C15.4 9 17.2835 5.73109 21.8982 6.71227C26.5128 7.69345 27.4626 14.5919 25.1864 17.6646C22.9101 20.7373 15.3875 24.9661 15.3875 24.9661C15.3875 24.9661 7.53607 20.7252 5.45706 17.6646C3.37805 14.6039 4.18918 7.62247 8.74521 6.71227C13.3013 5.80207 15.4 9 15.4 9Z" id="矢量图-4" fill="none" fill-rule="evenodd" stroke="#808080" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
-    <path d="M0 0L30 0L30 30L0 30L0 0Z" id="Rectangle-2" fill="#D3D3D3" fill-opacity="0" fill-rule="evenodd" stroke="none" />
-  </g>
-</svg>

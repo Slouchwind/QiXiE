@@ -5,13 +5,15 @@ import MainCode from "@/components/main";
 //Style
 import style from '@/styles/View.module.scss';
 
+//i18n
+import { useLocale } from "@/components/i18n";
+import view from "@/components/i18n/config/view";
+
 //Methods
-import { useRouter } from "next/router";
 import getTitle from "@/components/title";
 
 export default function View() {
-    const { locale, defaultLocale = 'zh-CN', asPath } = useRouter();
-    const lo = locale || defaultLocale;
+    const { lo, asPath } = useLocale(view);
     return (
         <MainCode>
             <NextSeo

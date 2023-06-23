@@ -1,9 +1,12 @@
 @import url(https://cdn.jsdelivr.net/npm/misans/lib/misans-300-light.min.css);
 @import url(https://cdn.jsdelivr.net/npm/@fontsource/heebo@5.0.3/300.min.css);
 
-:root {
-    --head-margin: 55px;
-    --selector-num: 12px;
+@mixin head-square($size) {
+    display: grid;
+    align-content: center;
+    justify-content: center;
+    width: $size;
+    height: $size;
 }
 
 ::-webkit-scrollbar {
@@ -19,10 +22,12 @@
 * {
     font-family: MiSans, Heebo, serif;
     transition-timing-function: cubic-bezier(0.42, -0.01, 0.69, 1.25);
+    user-select: none;
 }
 
 body {
     margin: 0;
+    overflow: hidden;
 }
 
 a {
@@ -30,47 +35,74 @@ a {
     text-decoration: none;
 }
 
+$float: "right";
+
 div#head {
     margin: 0;
+    padding: 20px;
     top: 0;
-    left: 0;
-    width: var(--head-margin);
+    #{$float}: 0;
+    width: 55px;
     height: 100%;
     position: fixed;
     z-index: 1;
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
-    align-content: center;
     align-items: center;
-
-    &:first-child {
-        margin-top: 20px;
-    }
+    background-color: rgb(255 255 255 / 50%);
+    backdrop-filter: blur(30px);
 
     a {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: 5px;
+        margin: 20%;
         border-radius: 50%;
-        transition-duration: 150ms;
+        @include head-square(50px);
 
-        &:hover {
-            background-color: #0000001d;
-            border-radius: 15px;
-            transition-duration: 200ms;
+        div {
+            transition-duration: 150ms;
+            border: {
+                radius: 50%;
+                width: 3px;
+                style: solid;
+            }
         }
 
-        img {
-            margin: 15% 30%;
-            width: 70%;
+        > div {
+            $s: 50px;
+            border-color: #667f90;
+            @include head-square($s);
+
+            > div {
+                border-color: #adbcc7;
+                @include head-square($s * (1/73 * 61.3));
+
+                > img {
+                    margin: auto;
+                    width: 70%;
+                }
+            }
+        }
+
+        > div#select > div {
+            border-color: #197bbc;
+        }
+
+        > div,
+        > div#select {
+            &:hover > div {
+                border-color: #adbcc7;
+                background-color: #d6dce1;
+            }
+            &:active > div {
+                border-color: #197bbc;
+                background-color: #197bbc;
+            }
         }
     }
 }
 
 div#headMargin {
-    width: calc(100% - var(--head-margin));
+    width: calc(100% - 95px);
     height: 100%;
-    margin-left: var(--head-margin);
+    margin-#{$float}: 95px;
 }

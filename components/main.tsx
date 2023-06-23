@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { useState } from "react";
+import iconSVG, { svgType } from "./svg";
 
 interface LinkBlockProps {
     href: string;
@@ -9,15 +11,36 @@ interface LinkBlockProps {
 
 function LinkBlock({ href, img }: LinkBlockProps) {
     const { asPath } = useRouter();
-    let selected = asPath === href;
+    const t = (asPath === href) ? 'color' : 'gray';
+    const [type, setType] = useState<svgType>(t);
+    const [down, setDown] = useState(false);
     let id = {};
-    if (selected) id = { id: 'select' };
+    if (asPath === href) id = { id: 'select' };
     const imgElement = (
-        <img
-            src={'/icons' + (img || href) + (selected ? '' : '-gray') + '.svg'}
-            alt={href}
+        <div
             {...id}
-        />
+            onMouseDown={() => {
+                setDown(true);
+                setType('white');
+            }}
+            onMouseUp={() => {
+                setDown(false);
+                setType('gray');
+            }}
+            onMouseOver={() => setType(down ? 'white' : 'gray')}
+            onMouseLeave={() => {
+                setDown(false);
+                setType(t);
+            }}
+        >
+            <div>
+                <img
+                    src={`/api/icon?name=${(img || href).slice(1)}&type=${type}`}
+                    draggable={false}
+                    alt={href}
+                />
+            </div>
+        </div>
     );
     return (<Link href={href}>{imgElement}</Link>);
 }
