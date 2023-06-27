@@ -1,12 +1,11 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useState } from "react";
-import iconSVG, { svgType } from "./svg";
+import { svgType } from "./svg";
 
 interface LinkBlockProps {
     href: string;
     img?: string;
-    link?: boolean;
 }
 
 function LinkBlock({ href, img }: LinkBlockProps) {
@@ -34,11 +33,12 @@ function LinkBlock({ href, img }: LinkBlockProps) {
             }}
         >
             <div>
-                <img
-                    src={`/api/icon?name=${(img || href).slice(1)}&type=${type}`}
-                    draggable={false}
-                    alt={href}
-                />
+                <img src={`/api/icon?name=${(img || href).slice(1)}&type=${type}`} alt={href} />
+            </div>
+            <div style={{ display: 'none' }}>
+                {(['color', 'gray', 'white'] as svgType[]).map(v => (
+                    <img src={`/api/icon?name=${(img || href).slice(1)}&type=${v}`} key={v} />
+                ))}
             </div>
         </div>
     );
